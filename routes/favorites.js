@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 
 const Favorites = require("../models/favorites");
 
+// Create or update a favorite
 router.post("/", async (req, res) => {
   const { token } = req;
 
@@ -33,6 +34,7 @@ router.post("/", async (req, res) => {
   return res.status(200).send(result);
 });
 
+// Get all favorites
 router.get("/", async (req, res) => {
   const { token } = req;
 

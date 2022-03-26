@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
+  user_id: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+  },
   title: {
     type: String,
     required: true,

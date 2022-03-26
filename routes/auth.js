@@ -6,6 +6,7 @@ const register = require("express").Router();
 
 const User = require("../models/user");
 
+// Login a user
 login.post("/", async (req, res) => {
   const user = await User.findOne({ name: req.body.name });
 
@@ -21,6 +22,7 @@ login.post("/", async (req, res) => {
   return res.send(token);
 });
 
+// Register a user
 register.post("/", async (req, res) => {
   const schema = Joi.object({
     name: Joi.string().max(255).required(),

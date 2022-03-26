@@ -3,6 +3,7 @@ const Joi = require("joi");
 
 const Orders = require("../models/orders");
 
+// Get orders
 router.get("/", async (req, res) => {
   const { token } = req;
 
@@ -11,10 +12,11 @@ router.get("/", async (req, res) => {
   return res.status(200).send(orders);
 });
 
+// Create an order
 router.post("/", async (req, res) => {
   const { token } = req;
 
-  const items = req.body.items.map(item => ({
+  const items = req.body.items.map((item) => ({
     price: item.price,
     title: item.title,
     quantity: item.quantity,
